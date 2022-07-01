@@ -3,9 +3,9 @@ const router = express.Router();
 
 const pool = require('../modules/pool');
 
-// Get all books
+// Get all tasks
 router.get('/', (req, res) => {
-  let queryText = 'SELECT * FROM "tasks" ORDER BY "task_name";';
+  let queryText = 'SELECT * FROM "tasks" ORDER BY "due_date";';
   pool.query(queryText).then(result => {
     // Sends back the results in an object
     res.send(result.rows);
@@ -16,8 +16,7 @@ router.get('/', (req, res) => {
   });
 });
 
-// Adds a new book to the list of awesome reads
-// Request body must be a book object with a title and author.
+// Adds a new task to the list of tasks
 router.post('/',  (req, res) => {
   let newTask = req.body;
   console.log(`Adding task`, newTask);
@@ -34,24 +33,8 @@ router.post('/',  (req, res) => {
     });
 });
 
-// router.put('/:id', (req, res) => {
-//   let bookId = req.params.id;
-//   let queryText = 'UPDATE "books" SET "isRead" = true WHERE id = $1;';
-//   pool.query(queryText, [bookId])
-//     .then((result) => {
-//       // Sends back the results in an object
-//       res.send(result.rows);
-//     })
-//     .catch((error) => {
-//       console.log('error getting books', error);
-//       res.sendStatus(500);
-//     });
-// });
-
-
 // TODO - DELETE 
-// Removes a book to show that it has been read
-// Request must include a parameter indicating what book to update - the id
+// Removes a task
 
 router.delete('/:id', (req, res) => {
   let reqId = req.params.id;
