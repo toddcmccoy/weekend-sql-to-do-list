@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A Simple Task List App</title>
+    <script src="./vendors/jquery-3.6.0.min.js" charset="utf-8"></script>
+    <script src="./scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Your Task List</h1>
+    </header>
+    <section id="addTask">
+      <h2>Add a Task</h2>
+      <input type="text" id="nameIn" value="" placeholder="Task Name">
+      <input type="text" id="dueDate" value="" placeholder="Due 07/28/2022">
+      <input type="text" id="notes" value="" placeholder="Notes">
+      <button type="button" id="addButton">Add Task</button>
+    </section>
+    <section>
+      <h2>All Tasks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Due Date</th>
+            <th>Tasks Notes</th>
+            <th>Complete Task</th>
+            <th>Delete Task</th>
+          </tr>
+        </thead>
+        <tbody id="viewTasks">
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>
