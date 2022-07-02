@@ -14,7 +14,6 @@ function setupClickListeners() {
   $('#viewTasks').on('click', '.complete', completeTask);
     console.log( 'in addButton on click' );
   $('#viewTasks').on('click', '.delete-button', deleteTask);
-   
 }
 
 function getTasks(){
@@ -37,13 +36,13 @@ function saveTask(){
   // Get info to send to the server
       let newTask = {
         name: $('#nameIn').val(), 
-        due_date: $('dueDate').val(),
+        due_date: $('#dueDate').val(),
         notes: $('#notesIn').val()
     };
     // Send the new task to the server as data
     $.ajax({
         method: 'POST',
-        url: '/tasks',
+        url: '/',
         data: newTask,
     }).then(function(response) {
         console.log(response);
@@ -83,9 +82,8 @@ function deleteTask() {
     data: {id: taskId}
   }).then(function() {
     console.log('Here');
-    // Once delete is sent, refresh the koala table
+    // Once delete is sent, refresh the task table
     getTasks()
-    // getKoalas();
   }).catch(function(error) {
     alert('Something went wrong in the DELETE /Tasks :(', error)
   })
@@ -93,12 +91,12 @@ function deleteTask() {
 
 function completeTask() {
   let id = $(this).data('id');
-  let completed = $(this).data('status');
+  let complete = $(this).data('status');
   console.log('this should be the task id:', id );
   $.ajax({
     method: 'PUT',
     url: `/tasks/${id}`,
-    data: {status: !completed}
+    data: {status: !complete}
   })
   .then(function() {
     getTasks();

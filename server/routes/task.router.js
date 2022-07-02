@@ -21,8 +21,9 @@ router.post('/',  (req, res) => {
   let newTask = req.body;
   console.log(`Adding task`, newTask);
 
-  let queryText = `INSERT INTO "tasks" ("name", "due_date", "notes",)
-    VALUES ($1, $2, $3);`;
+  const queryText = `INSERT INTO "tasks" ("name", "due_date", "notes",)
+    VALUES ($1, $2, $3);
+    `;
   pool.query(queryText, [newTask.name, newTask.due_date, newTask.notes])
     .then(result => {
       res.sendStatus(201);
@@ -32,6 +33,27 @@ router.post('/',  (req, res) => {
       res.sendStatus(500);
     });
 });
+
+router.put('/:id', (req, res) => {
+  let taskId = req.params.id;
+  let complete = req.body.status;
+  let queryText;
+
+  console.log( 'This is the put request', complete);
+
+  if( complete !== true){
+  queryText = 'UPDATE "tasks" SET "complete" = true WHERE id = $1;';
+  } else { res.sendStatus(500); 
+  }
+  pool.query(queryText, [taskId])
+  .then((dbResponse) => {
+    res.send(dbResponse.rows);
+  })
+  .catch((error) => {
+    console.log(`ERROR IN ROUTER WITH UPDATING /PUT ${queryText} ${error}`);
+    res.sendStatus(500);
+  }) 
+})
 
 // TODO - DELETE 
 // Removes a task
@@ -53,12 +75,3 @@ router.delete('/:id', (req, res) => {
 
 
 module.exports = router;
-
-
-// Working with booleans in SQL:
-// SELECTing:
-// If you want the rows with True in the boolean_column: SELECT * FROM “table” WHERE “boolean_column”;
-// If you want the rows with False in the boolean_column: SELECT * FROM “table” WHERE NOT “boolean_column”;
-// UPDATEing:
-// Setting a value to True:  UPDATE “table” SET “boolean_column” = True;
-// Setting a value to False: UPDATE “table” SET “boolean_column” = False;
