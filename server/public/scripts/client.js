@@ -37,7 +37,8 @@ function saveTask(){
       let newTask = {
         name: $('#nameIn').val(), 
         due_date: $('#dueDate').val(),
-        notes: $('#notesIn').val()
+        notes: $('#notesIn').val(),
+        complete: false
     };
     // Send the new task to the server as data
     $.ajax({
