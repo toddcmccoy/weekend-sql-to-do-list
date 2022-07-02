@@ -4,7 +4,7 @@ $( document ).ready( function(){
   console.log( 'JQ' );
   // Establish Click Listeners
   setupClickListeners();
-  // load existing koalas on page load
+  // load existing tasks on page load
   getTasks();
 
 }); // end doc ready
@@ -42,8 +42,8 @@ function saveTask(){
     // Send the new task to the server as data
     $.ajax({
         method: 'POST',
-        url: '/',
-        data: newTask,
+        url: '/tasks',
+        data: newTask
     }).then(function(response) {
         console.log(response);
         getTasks();
@@ -63,6 +63,7 @@ function renderTable(tasks) {
       <td>${task.name}</td>
       <td>${task.due_date}</td>
       <td>${task.notes}</td>
+      <td>${task.complete}</td>
       <td>
         <button data-id = ${task.id} class = "delete-button" >Delete</button>
       </td>
