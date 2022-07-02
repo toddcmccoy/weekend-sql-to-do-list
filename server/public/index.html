@@ -11,13 +11,16 @@
     <header>
       <h1>Your Task List</h1>
     </header>
+    
     <section id="addTask">
-      <h2>Add a Task</h2>
+    <h2>Add a Task</h2>
+    <div class="container">
       <input type="text" id="nameIn" value="" placeholder="Task Name">
       <input type="text" id="dueDate" value="" placeholder="Due 07/28/2022">
       <input type="text" id="notesIn" value="" placeholder="Notes">
       <button type="button" id="addButton">Add Task</button>
     </section>
+    </div>
     <section>
       <h2>All Tasks</h2>
       <table>
@@ -25,9 +28,10 @@
           <tr>
             <th>Task Name</th>
             <th>Due Date</th>
-            <th>Tasks Notes</th>
-            <th>Complete Task</th>
+            <th>Task Notes</th>
+            <th>Task Complete</th>
             <th>Delete Task</th>
+            <th>Mark Complete</th>
           </tr>
         </thead>
         <tbody id="viewTasks">

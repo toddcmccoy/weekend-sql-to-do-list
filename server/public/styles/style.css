@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: whitesmoke;
+    margin: 0px;
+    padding: 0px
+}
+header{
+    text-align: center;
+}
+h1{
+    color: black;
+    font-size: 32pt;
+}
+h2{
+    color: black;
+    font-size: 20pt;
+    text-align: center;
+}
+.container{
+    border-radius: 5px;
+    background-color: darkgray;
+    margin-left: 18px;
+    margin-right: 18px;
+    padding: 40px;
+}
+#addButton{
+    display: inline-block;
+    background-color: aqua;
+    border-radius: 5px;
+    border: 2px;
+    color: black;
+    text-align: center;
+    font-size: 16pt;
+    padding: 20px;
+    width: 180px;
+    margin-left: 42%;
+    margin-right: 42%;
+    margin-top: 20px;
+}
+p{
+    color: black;
+    font-size: 16pt;
+    text-align: center;
+}
+input[type=text] {
+    padding: 15px;
+    border-radius: 0px;
+    margin-top: 8px;
+    margin-left: 25%;
+    position: static;
+}
+#nameIn{
+    width: 480px;
+}
+#dueDate{
+    width: 480px;
+}
+#notesIn{
+    height: 180px;
+    width: 480px;
+}
+table{
+    text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-left: auto; 
+    margin-right: auto;
+}
+th{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 18pt;
+    height: 48px;
+    width: 180px;
+}
+tr{
+    background-color: white;
+    border: 2px solid black;
+}
+td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 18pt;
+    height: 48px;
+    width: 180px;
+}
+
