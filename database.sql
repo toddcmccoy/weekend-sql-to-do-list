@@ -2,8 +2,8 @@ CREATE TABLE "weekend-to-do-app" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR(80) NOT NULL,
     "due_date" DATE,
-    "notes" VARCHAR(250)
-    "complete" BOOLEAN DEFAULT FALSE,
+    "notes" VARCHAR(250),
+    "complete" BOOLEAN DEFAULT FALSE
 );
 
 INSERT INTO "weekend-to-do-app"(

@@ -5,7 +5,7 @@ const taskRouter = require('./routes/task.router.js');
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use('/tasks', taskRouter);
+app.use('/weekend-to-do-app', taskRouter);
 
 // Serve back static files by default
 app.use(express.static('server/public'))

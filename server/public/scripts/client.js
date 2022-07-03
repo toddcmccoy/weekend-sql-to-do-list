@@ -19,7 +19,7 @@ function getTasks(){
   $('#viewTasks').empty();
   // ajax call to server to get tasks
   $.ajax ({
-    url:'/tasks',
+    url:'/weekend-to-do-app',
     method: 'GET'
   }).then((response) => {
     console.log('response from GET:', response);
@@ -43,7 +43,7 @@ function saveTask(){
     // Send the new task to the server as data
     $.ajax({
         method: 'POST',
-        url: '/tasks',
+        url: '/weekend-to-do-app',
         data: newTask
     }).then(function(response) {
         console.log(response);
@@ -89,7 +89,7 @@ function deleteTask() {
 
   $.ajax({
     method: 'DELETE',
-    url: `/tasks/${taskId}`,
+    url: `/weekend-to-do-app/${taskId}`,
     data: {id: taskId}
   }).then(function() {
     console.log('Here');
@@ -109,7 +109,7 @@ function completeTask() {
   console.log('this should be the task id:', id );
   $.ajax({
     method: 'PUT',
-    url: `/tasks/${id}`,
+    url: `/weekend-to-do-app/${id}`,
     data: {status: !complete}
   })
   .then(function() {
