@@ -1,10 +1,16 @@
-* {
-    box-sizing: border-box;
+.red{
+    background-color: red;
 }
 body {
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     margin: 0px;
     padding: 0px
+}
+.status[data-status=true]{
+    background-color : lightslategray
+}
+.status[data-status= false ]{
+    background-color : firebrick
 }
 header{
     text-align: center;
@@ -67,6 +73,7 @@ table{
     border-collapse: collapse;
     margin-left: auto; 
     margin-right: auto;
+    margin-bottom: 10%;
 }
 th{
     border: 2px solid black;
@@ -78,7 +85,6 @@ th{
     width: 180px;
 }
 tr{
-    background-color: white;
     border: 2px solid black;
 }
 td{
@@ -90,4 +96,5 @@ td{
     height: 48px;
     width: 180px;
 }
+
 

@@ -53,6 +53,10 @@ function saveTask(){
         alert('Error adding task in client. Please try again later.')       
     });
     console.log('Adding task in client', newTask);
+//Clearing out the inputs after task is added
+      $('#nameIn').val('');
+      $('#dueDate').val('');
+      $('#notesIn').val('');
 }
 
 function renderTable(tasks) {
@@ -60,15 +64,17 @@ function renderTable(tasks) {
   for (let i=0; i < tasks.length; i += 1) {
     let task = tasks[i];
     $('#viewTasks').append(`
-    <tr>
+    <tr data-status="${task.complete}" class="status">
       <td>${task.name}</td>
       <td>${task.due_date}</td>
       <td>${task.notes}</td>
       <td>${task.complete}</td>
       <td>
-        <button data-id = ${task.id} class = "delete-button" >Delete</button>
+      <button data-id = ${task.id} class = "delete-button" >Delete</button>
       </td>
-      <td><button data-status="${task.complete}" data-id=${task.id} class="button complete" >Complete Task</button></td>
+      <td>
+      <button id="completed" data-status="${task.complete}" data-id=${task.id} class="button complete" >Complete Task</button>
+      </td>
     </tr>
   `)
   }
@@ -90,10 +96,13 @@ function deleteTask() {
     alert('Something went wrong in the DELETE /Tasks :(', error)
   })
 }
+//end delete function
 
+//function to mark a task as completed
 function completeTask() {
   let id = $(this).data('id');
   let complete = $(this).data('status');
+  
   console.log('this should be the task id:', id );
   $.ajax({
     method: 'PUT',
