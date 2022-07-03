@@ -1,13 +1,10 @@
-console.log( 'js' );
-
 $( document ).ready( function(){
   console.log( 'JQ' );
   // Establish Click Listeners
   setupClickListeners();
   // load existing tasks on page load
   getTasks();
-
-}); // end doc ready
+}); // end document ready
 
 function setupClickListeners() {
   $( '#addButton' ).on( 'click', saveTask);
@@ -16,6 +13,7 @@ function setupClickListeners() {
   $('#viewTasks').on('click', '.delete-button', deleteTask);
 }
 
+//function to get all tasks from the database
 function getTasks(){
   console.log( 'in getTasks' );
   $('#viewTasks').empty();
@@ -31,6 +29,8 @@ function getTasks(){
   })
 } // end getTasks
 
+
+//function to input new tasks into the database
 function saveTask(){
   // ajax call to server to get tasks
   // Get info to send to the server
@@ -58,7 +58,9 @@ function saveTask(){
       $('#dueDate').val('');
       $('#notesIn').val('');
 }
+//end saveTask function
 
+// function to display the tasks from the database onto the page
 function renderTable(tasks) {
   
   for (let i=0; i < tasks.length; i += 1) {
@@ -79,6 +81,7 @@ function renderTable(tasks) {
   `)
   }
 }
+//end of renderTasks function
 
 // function to delete task
 function deleteTask() {
@@ -116,4 +119,5 @@ function completeTask() {
     alert('ERROR in Complete Task FUNCTION IN CLIENT', error);
   })
 }
+// end completeTask function
 

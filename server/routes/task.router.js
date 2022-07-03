@@ -33,7 +33,7 @@ router.post('/',  (req, res) => {
       res.sendStatus(500);
     });
 });
-
+//changes tasks from incomplete to complete
 router.put('/:id', (req, res) => {
   let taskId = req.params.id;
   let complete = req.body.status;
@@ -55,8 +55,8 @@ router.put('/:id', (req, res) => {
   }) 
 })
 
-// TODO - DELETE 
-// Removes a task
+
+// Removes a task from the database and from displaying on the page
 
 router.delete('/:id', (req, res) => {
   let reqId = req.params.id;
