@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 
 // Get all tasks
 router.get('/', (req, res) => {
-  let queryText = 'SELECT * FROM "tasks" ORDER BY "due_date";';
+  let queryText = 'SELECT * FROM "weekend-to-do-app" ORDER BY "due_date";';
   pool.query(queryText).then(result => {
     // Sends back the results in an object
     res.send(result.rows);
@@ -21,7 +21,7 @@ router.post('/',  (req, res) => {
   let newTask = req.body;
   console.log(`Adding task`, newTask);
 
-  const queryText = `INSERT INTO "tasks" ("name", "due_date", "notes", "complete")
+  const queryText = `INSERT INTO "weekend-to-do-app" ("name", "due_date", "notes", "complete")
     VALUES ($1, $2, $3, $4);
     `;
   pool.query(queryText, [newTask.name, newTask.due_date, newTask.notes, newTask.complete])
@@ -42,7 +42,7 @@ router.put('/:id', (req, res) => {
   console.log( 'This is the put request', complete);
 
   if( complete !== true){
-  queryText = 'UPDATE "tasks" SET "complete" = true WHERE id = $1;';
+  queryText = 'UPDATE "weekend-to-do-app" SET "complete" = true WHERE id = $1;';
   } else { res.sendStatus(500); 
   }
   pool.query(queryText, [taskId])
@@ -61,7 +61,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   let reqId = req.params.id;
   console.log(`Delete request sent for id ${reqId}`);
-  let queryText = 'DELETE FROM "tasks" WHERE id = $1;';
+  let queryText = 'DELETE FROM "weekend-to-do-app" WHERE id = $1;';
   pool.query(queryText, [reqId])
     .then(() => {
       console.log('Task completed and deleted!')
