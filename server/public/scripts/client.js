@@ -10,7 +10,7 @@ function setupClickListeners() {
   $( '#addButton' ).on( 'click', saveTask);
   $('#viewTasks').on('click', '.complete', completeTask);
     console.log( 'in addButton on click' );
-  $('#viewTasks').on('click', '.delete-button', deleteTask);
+  $('#viewTasks').on('click', '.delete', deleteTask);
 }
 
 //function to get all tasks from the database
@@ -72,7 +72,7 @@ function renderTable(tasks) {
       <td>${task.notes}</td>
       <td>${task.complete}</td>
       <td>
-      <button data-id = ${task.id} class = "delete-button" >Delete</button>
+      <button data-id = ${task.id} class = "button delete" >Delete</button>
       </td>
       <td>
       <button id="completed" data-status="${task.complete}" data-id=${task.id} class="button complete" >Complete Task</button>

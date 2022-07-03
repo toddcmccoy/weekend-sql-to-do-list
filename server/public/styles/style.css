@@ -1,8 +1,16 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    font-family: fantasy;
+}
 body {
     background-color: whitesmoke;
     margin: 0px;
     padding: 0px
 }
+/* Found this really cool method to target dynamic attributes to modify the CSS */
 .status[data-status=true]{
     background-color : lightslategray
 }
@@ -11,6 +19,7 @@ body {
 }
 header{
     text-align: center;
+    font-family: fantasy;
 }
 h1{
     color: black;
@@ -41,6 +50,14 @@ h2{
     margin-right: 10px;
     margin-top: 20px;
 }
+.button{
+    background-color: black;
+    color: whitesmoke;
+    font-size: 18pt;
+    margin: 10px;
+    width: 200px;
+    height: 60px;
+}
 p{
     color: black;
     font-size: 16pt;
@@ -69,6 +86,7 @@ table{
     text-align: center;
     border: 2px solid black;
     border-collapse: collapse;
+    width: 90%;
     margin-left: auto; 
     margin-right: auto;
     margin-bottom: 10%;
