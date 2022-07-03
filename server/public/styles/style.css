@@ -1,8 +1,5 @@
-.red{
-    background-color: red;
-}
 body {
-    /* background-color: whitesmoke; */
+    background-color: whitesmoke;
     margin: 0px;
     padding: 0px
 }
@@ -25,10 +22,9 @@ h2{
     text-align: center;
 }
 .container{
-    border-radius: 5px;
     background-color: darkgray;
-    margin-left: 18px;
-    margin-right: 18px;
+    margin-left: 12px;
+    margin-right: 12px;
     padding: 40px;
 }
 #addButton{
@@ -40,9 +36,9 @@ h2{
     text-align: center;
     font-size: 16pt;
     padding: 20px;
-    width: 180px;
-    margin-left: 42%;
-    margin-right: 42%;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 20px;
 }
 p{
@@ -53,19 +49,21 @@ p{
 input[type=text] {
     padding: 15px;
     border-radius: 0px;
-    margin-top: 8px;
-    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
     position: static;
 }
 #nameIn{
-    width: 480px;
+    width: 100%;
 }
 #dueDate{
-    width: 480px;
+    width: 100%;
 }
 #notesIn{
     height: 180px;
-    width: 480px;
+    width: 100%;
 }
 table{
     text-align: center;
